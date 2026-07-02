@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>f3nômen4 — Marketing Science</title>
+  <meta name="description" content="Fusionamos la profundidad analítica con la excelencia creativa para construir una ventaja competitiva real: Certeza.">
+  <link rel="icon" type="image/png" href="FAVICON_square.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FE633D;
+      --black: #FFFFFF;
+      --white: #0A0A0A;
+      --lime: #D0EE4C;
+      --teal: #00BA95;
+      --pink: #FEAEE5;
+      --blue: #004BDA;
+      --gray-mid: #F4F4F4;
+      --gray-dark: #EBEBEB;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 3rem;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .nav-logo img { height: 48px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(0,0,0,0.5);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta {
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.55rem 1.4rem;
+      border-radius: 5px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -15%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(254,99,61,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(208,238,76,0.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(254,99,61,0.1);
+      border: 1px solid rgba(254,99,61,0.25);
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 2.25rem;
+      width: fit-content;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 6.8vw, 6rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      max-width: 1000px;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-title .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      color: rgba(0,0,0,0.5);
+      max-width: 520px;
+      margin-bottom: 3rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-sub strong { color: rgba(0,0,0,0.8); font-weight: 600; }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    .btn-ghost {
+      color: rgba(0,0,0,0.5);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--white); }
+
+    /* STATS */
+    .stats {
+      background: var(--gray-mid);
+      border-top: 1px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item { text-align: center; }
+
+    .stat-number {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: rgba(0,0,0,0.45);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* SECTIONS */
+    section { padding: 7rem 3rem; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title .accent { color: var(--orange); }
+    .section-title .accent-lime { color: var(--lime); }
+
+    .section-body {
+      font-size: 1.05rem;
+      color: rgba(0,0,0,0.5);
+      max-width: 540px;
+      line-height: 1.75;
+    }
+
+    /* PROPOSITION */
+    .proposition { background: var(--black); }
+
+    .prop-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .prop-pillars {
+      display: flex;
+      flex-direction: column;
+      margin-top: 3rem;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .pillar:first-child { border-top: 1px solid rgba(0,0,0,0.08); }
+
+    .pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .pillar-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: rgba(0,0,0,0.5);
+    }
+
+    .prop-quote {
+      background: var(--gray-mid);
+      border-radius: 16px;
+      padding: 3rem;
+      border: 1px solid rgba(0,0,0,0.08);
+      position: relative;
+    }
+
+    .prop-quote::before {
+      content: '"';
+      position: absolute;
+      top: 1.5rem;
+      left: 2.5rem;
+      font-size: 6rem;
+      font-weight: 800;
+      color: rgba(254,99,61,0.15);
+      line-height: 1;
+    }
+
+    .prop-quote blockquote {
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+      padding-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .prop-quote blockquote .accent { color: var(--orange); }
+
+    .quote-tag {
+      display: inline-block;
+      background: rgba(254,99,61,0.1);
+      color: var(--orange);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      letter-spacing: 0.05em;
+    }
+
+    /* FRAMEWORK */
+    .framework { background: var(--gray-mid); }
+
+    .framework-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 4rem;
+    }
+
+    .framework-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: var(--black);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .step-card:hover {
+      border-color: rgba(254,99,61,0.35);
+      transform: translateY(-3px);
+    }
+
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .step-card:nth-child(1)::before { background: var(--orange); }
+    .step-card:nth-child(2)::before { background: var(--lime); }
+    .step-card:nth-child(3)::before { background: var(--teal); }
+    .step-card:nth-child(4)::before { background: var(--pink); }
+
+    .step-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.25);
+      margin-bottom: 1.25rem;
+    }
+
+    .step-name {
+      font-size: 1.2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+      line-height: 1.2;
+    }
+
+    .step-name .c-orange { color: var(--orange); }
+    .step-name .c-lime   { color: var(--lime); }
+    .step-name .c-teal   { color: var(--teal); }
+    .step-name .c-pink   { color: var(--pink); }
+
+    .step-desc {
+      font-size: 0.855rem;
+      color: rgba(0,0,0,0.5);
+      line-height: 1.65;
+    }
+
+    /* SERVICES */
+    .services { background: var(--black); }
+
+    .services-header {
+      max-width: 1200px;
+      margin: 0 auto 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.06);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: #F8F8F8;
+      padding: 2.5rem 2.25rem;
+      transition: background 0.3s;
+    }
+
+    .service-card:hover { background: #F0F0F0; }
+
+    .service-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .service-name {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
+    }
+
+    .service-desc {
+      font-size: 0.855rem;
+      color: rgba(0,0,0,0.5);
+      line-height: 1.65;
+    }
+
+    /* CASES */
+    .cases { background: var(--gray-mid); }
+
+    .cases-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 4rem;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .case-card {
+      background: var(--black);
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 2rem 1.75rem;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .case-card:hover {
+      border-color: rgba(254,99,61,0.35);
+      transform: translateY(-3px);
+    }
+
+    .case-client {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-campaign {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .case-metrics { display: flex; flex-direction: column; gap: 0.9rem; }
+
+    .case-metric { display: flex; align-items: flex-start; gap: 1rem; }
+
+    .metric-value {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.5);
+      line-height: 1.45;
+      padding-top: 0.1rem;
+    }
+
+    .case-award {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      font-size: 0.78rem;
+      color: #5a8a00;
+      font-weight: 600;
+    }
+
+    /* CLIENTS */
+    .clients { background: var(--black); text-align: center; }
+
+    .clients-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      margin-bottom: 2.75rem;
+    }
+
+    .clients-list {
+      display: grid;
+      grid-template-columns: repeat(4, 160px);
+      gap: 1.5rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    .client-logo-wrap {
+      width: 160px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .client-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: grayscale(20%);
+      transition: opacity 0.25s, filter 0.25s;
+      cursor: default;
+    }
+
+    .client-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+
+    /* DIFFERENTIATORS */
+    .diff { background: var(--gray-mid); }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .diff-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .diff-item { display: flex; gap: 1.25rem; align-items: flex-start; }
+
+    .diff-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+      margin-top: 0.5rem;
+    }
+
+    .diff-text {
+      font-size: 1rem;
+      color: rgba(0,0,0,0.65);
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    .diff-text strong { color: var(--white); font-weight: 700; }
+
+    .tech-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .tech-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+      gap: 1rem 1.5rem;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .tech-logo-item {
+      width: 104px;
+      height: 104px;
+      object-fit: contain;
+      border-radius: 8px;
+      mix-blend-mode: multiply;
+    }
+
+    /* CTA */
+    .cta-section {
+      background: var(--orange);
+      padding: 8rem 3rem;
+    }
+
+    .cta-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .cta-label {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 3rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      text-align: left;
+      align-items: start;
+    }
+
+    .cta-channel-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 1rem;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 1.75rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-whatsapp:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .cta-wa-desc {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      margin-top: 1rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 6px;
+      padding: 0.85rem 1rem;
+      color: #fff;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.45); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: rgba(255,255,255,0.7);
+      background: rgba(255,255,255,0.18);
+    }
+
+    .contact-form textarea { resize: vertical; min-height: 110px; }
+
+    .btn-submit {
+      background: #fff;
+      color: var(--orange);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 1rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      align-self: flex-start;
+    }
+
+    .btn-submit:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-logo img { height: 26px; width: auto; opacity: 0.6; }
+
+    .footer-text {
+      font-size: 0.78rem;
+      color: rgba(0,0,0,0.4);
+      line-height: 1.6;
+    }
+
+    .footer-partners { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .partner-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: rgba(0,0,0,0.4);
+      border: 1px solid rgba(0,0,0,0.12);
+      padding: 0.28rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); padding: 2.5rem 1.5rem; }
+      .prop-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .framework-steps { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .cases-grid { grid-template-columns: 1fr 1fr; }
+      .diff-grid { grid-template-columns: 1fr; gap: 3rem; }
+      footer { flex-direction: column; align-items: flex-start; padding: 2.5rem 1.5rem; }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 4rem 1.25rem; }
+      .hero { padding: 6rem 1.25rem 3.5rem; }
+      .framework-steps { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .cases-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 5rem 1.5rem; }
+      footer { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <img src="lgo_fenomena.png" alt="f3nômen4">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#framework">Framework</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#casos">Casos</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Conversemos</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-badge">Marketing Science Agency</span>
+    <h1 class="hero-title">
+      Creativ1dad + D4tos<br>
+      <span class="accent">Certeza</span>
+    </h1>
+    <p class="hero-sub">
+      Fusionamos la profundidad analítica con la excelencia creativa para construir una ventaja competitiva real. Nada en Fenómena ocurre por azar; ocurre por <strong>diseño</strong>.
+    </p>
+    <div class="hero-actions">
+      <a href="#contacto" class="btn-primary">Habla con nosotros</a>
+      <a href="#casos" class="btn-ghost">Ver casos de éxito →</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat-item">
+      <div class="stat-number">+15</div>
+      <div class="stat-label">años en creatividad<br>y marketing</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+68</div>
+      <div class="stat-label">marcas como<br>clientes</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">$2.500M</div>
+      <div class="stat-label">invertidos en medios<br>(últimos 24 meses)</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">+120K</div>
+      <div class="stat-label">leads<br>generados</div>
+    </div>
+  </div>
+
+  <!-- PROPOSITION -->
+  <section class="proposition">
+    <div class="prop-grid">
+      <div>
+        <h2 class="section-title">
+          Nuestra <span class="accent">propuesta</span>
+        </h2>
+        <p class="section-body">Nuestro enfoque en 3 ejes.</p>
+        <div class="prop-pillars">
+          <div class="pillar">
+            <div class="pillar-icon" style="background:rgba(254,99,61,0.1)">🎯</div>
+            <div>
+              <div class="pillar-title">Creatividad</div>
+              <div class="pillar-desc">Convertimos esa verdad en ideas con alma, diseñadas para conectar y construir vínculos reales.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" style="background:rgba(208,238,76,0.1)">📊</div>
+            <div>
+              <div class="pillar-title">Datos</div>
+              <div class="pillar-desc">Analizamos para encontrar esas verdades detrás de un comportamiento. Basta de suposiciones.</div>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon" style="background:rgba(0,186,149,0.1)">⚙️</div>
+            <div>
+              <div class="pillar-title">Tecnología</div>
+              <div class="pillar-desc">Nos movemos a través de plataformas vivas que aprenden, se adaptan y optimizan en tiempo real.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="prop-quote">
+          <blockquote>
+            "Operamos como un simulador de futuro para tu negocio."
+          </blockquote>
+          <span class="quote-tag">f3nômen4 · Marketing Science</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section class="framework" id="framework">
+    <div class="framework-header">
+      <p class="section-label">Metodología</p>
+      <h2 class="section-title">Nuestro <span class="accent">framework</span></h2>
+      <p class="section-body" style="margin:0 auto">Un sistema de cuatro pasos diseñado para convertir datos en ventaja competitiva sostenible.</p>
+    </div>
+    <div class="framework-steps">
+      <div class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-name"><span class="c-orange">Cap1tal</span> de M4rca</div>
+        <div class="step-desc">Auditamos para encontrar la ventaja injusta de tu marca. Lo que nadie más puede replicar.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-name"><span class="c-lime">Atr4cc1ón</span></div>
+        <div class="step-desc">Publicidad calibrada por datos, con reflejos. Llegamos al público correcto en el momento exacto.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-name"><span class="c-teal">Relacion4miento</span></div>
+        <div class="step-desc">Datos directos de audiencia como activo estratégico. Tu comunidad, tu propiedad, tu ventaja.</div>
+      </div>
+      <div class="step-card">
+        <div class="step-number">04</div>
+        <div class="step-name"><span class="c-pink">Mark3ting Int3lligence</span></div>
+        <div class="step-desc">Simulamos el futuro y eliminamos puntos ciegos antes de que cuesten dinero.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicios">
+    <div class="services-header">
+      <p class="section-label">Servicios</p>
+      <h2 class="section-title">Tu negocio necesita un <span class="accent">servicio integral</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(254,99,61,0.1);color:#FE633D">Media</span>
+        <div class="service-name">f3nô Medi4</div>
+        <div class="service-desc">Planificación y compra de medios con precisión quirúrgica. Google Partner + Meta Business Partner.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(208,238,76,0.1);color:#D0EE4C">Contenido</span>
+        <div class="service-name">Content L4b</div>
+        <div class="service-desc">Producción de contenido basado en datos. Lo que funciona, amplificado. Lo que no, descartado.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(0,186,149,0.1);color:#00BA95">Estrategia</span>
+        <div class="service-name">Br4nd Strategy</div>
+        <div class="service-desc">Construcción y evolución de marca con metodología propia. Capital de marca como inversión real.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(254,174,229,0.1);color:#FEAEE5">CRM</span>
+        <div class="service-name">T0uch</div>
+        <div class="service-desc">Gestión de relaciones con datos propios. Audiencias que son tuyas, no del algoritmo.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(0,75,218,0.12);color:#6699FF">Creativo</span>
+        <div class="service-name">Cre4tive</div>
+        <div class="service-desc">Piezas que convierten. Creatividad que viene de datos y llega a las emociones.</div>
+      </div>
+      <div class="service-card">
+        <span class="service-tag" style="background:rgba(255,215,0,0.1);color:#FFD700">Analytics</span>
+        <div class="service-name">Metr1cs</div>
+        <div class="service-desc">Medición, reporting e inteligencia de mercado. Decisiones sin ambigüedad ni ruido.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section class="cases" id="casos">
+    <div class="cases-header">
+      <p class="section-label">Casos de éxito</p>
+      <h2 class="section-title">Resultados que <span class="accent">hablan</span></h2>
+      <p class="section-body" style="margin:0 auto">No prometemos; demostramos. Estos son algunos de los resultados que hemos construido para nuestros clientes.</p>
+    </div>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-client">Volvo Trucks</div>
+        <div class="case-campaign">Go Electric</div>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="metric-value">Top 7°</div>
+            <div class="metric-label">en búsquedas Google "Camión Eléctrico" — desde el puesto 15°</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-client">Volvo Trucks</div>
+        <div class="case-campaign">Iron Women</div>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="metric-value">+211%</div>
+            <div class="metric-label">inscripciones edición 2025 vs 2024</div>
+          </div>
+          <div class="case-metric">
+            <div class="metric-value">-38%</div>
+            <div class="metric-label">costo por clic</div>
+          </div>
+        </div>
+        <div class="case-award">🏆 Premio EIKON — Categoría Sustentabilidad</div>
+      </div>
+      <div class="case-card">
+        <div class="case-client">Cencosud Puntos</div>
+        <div class="case-campaign">Programa de Lealtad</div>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="metric-value">+433%</div>
+            <div class="metric-label">interacciones (2.288 → 12.199) en solo 4 meses</div>
+          </div>
+          <div class="case-metric">
+            <div class="metric-value">+190%</div>
+            <div class="metric-label">interacciones promedio por publicación</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-client">Tucapel</div>
+        <div class="case-campaign">85 Años</div>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="metric-value">+25MM</div>
+            <div class="metric-label">views totales de campaña</div>
+          </div>
+          <div class="case-metric">
+            <div class="metric-value">87%</div>
+            <div class="metric-label">de views al 100% en YouTube</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-client">Universidad Austral de Chile</div>
+        <div class="case-campaign">Admisión 2025</div>
+        <div class="case-metrics">
+          <div class="case-metric">
+            <div class="metric-value">3.783</div>
+            <div class="metric-label">matriculados totales en el proceso</div>
+          </div>
+          <div class="case-metric">
+            <div class="metric-value">+58%</div>
+            <div class="metric-label">vs admisión anterior</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:rgba(254,99,61,0.03);border-color:rgba(254,99,61,0.15)">
+        <div style="font-size:2.5rem;margin-bottom:1.25rem">📈</div>
+        <div class="case-campaign" style="font-size:1.6rem;margin-bottom:0.75rem">+68 marcas</div>
+        <div style="color:rgba(0,0,0,0.5);font-size:0.875rem;line-height:1.6">confían en nuestra metodología<br>en Chile, Colombia, Uruguay,<br>Argentina y Ecuador</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients" id="clientes">
+    <p class="clients-label">Marcas que confían en f3nômen4</p>
+    <div class="clients-list">
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo cenco.png" alt="Cencosud"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo volvo.png" alt="Volvo"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo surlat.png" alt="Surlat"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo banquete.png" alt="Banquete"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo tucapel.png" alt="Tucapel"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo proyeccion.png" alt="Inmobiliaria Proyección"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo py.png" alt="PY Inmobiliaria"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo tuhogaronline.png" alt="tuhogaronline"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo nordica.png" alt="Nórdica Wellness"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo uach.png" alt="Universidad Austral de Chile"></div>
+      <div class="client-logo-wrap"><img class="client-logo" src="logos clientes/logo sembrar futuro.png" alt="Fundación Sembrar Futuro"></div>
+    </div>
+  </section>
+
+  <!-- DIFFERENTIATORS -->
+  <section class="diff">
+    <div class="diff-grid">
+      <div>
+        <p class="section-label">Por qué nosotros</p>
+        <h2 class="section-title">Lo que nos hace<br><span class="accent">diferentes</span></h2>
+        <div class="diff-items">
+          <div class="diff-item">
+            <div class="diff-dot"></div>
+            <div class="diff-text"><strong>Primera agencia 100% Certificada en Protección de Datos</strong> por AMDD Chile</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-dot"></div>
+            <div class="diff-text"><strong>Alianza con Dunnhumby</strong> — líder mundial en Customer Data Science</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-dot"></div>
+            <div class="diff-text"><strong>Google Partner</strong> + <strong>Meta Business Partner</strong> certificados</div>
+          </div>
+          <div class="diff-item">
+            <div class="diff-dot"></div>
+            <div class="diff-text">Presencia activa en <strong>5 países</strong>: Chile, Colombia, Uruguay, Argentina y Ecuador</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="tech-section-label">Stack tecnológico</p>
+        <div class="tech-logos-grid">
+          <img class="tech-logo-item" src="logos-stack/logo-google.png" alt="Google Partner">
+          <img class="tech-logo-item" src="logos-stack/logo-meta.png" alt="Meta Business Partner">
+          <img class="tech-logo-item" src="logos-stack/logo-gcp.png" alt="Google Cloud Platform">
+          <img class="tech-logo-item" src="logos-stack/logo-tag-manager.png" alt="Google Tag Manager">
+          <img class="tech-logo-item" src="logos-stack/logo-rd.png" alt="RD Station Partners">
+          <img class="tech-logo-item" src="logos-stack/logo-cor.png" alt="COR">
+          <img class="tech-logo-item" src="logos-stack/logo-similar.png" alt="Similarweb">
+          <img class="tech-logo-item" src="logos-stack/logo-semrush.png" alt="SEMrush">
+          <img class="tech-logo-item" src="logos-stack/logo-metricool.png" alt="Metricool">
+          <img class="tech-logo-item" src="logos-stack/logo-hub.png" alt="HubSpot">
+          <img class="tech-logo-item" src="logos-stack/logo-rd-crm.png" alt="RD Station CRM">
+          <img class="tech-logo-item" src="logos-stack/logo-gemini.png" alt="Gemini">
+          <img class="tech-logo-item" src="logos-stack/logo-chatgpt.png" alt="ChatGPT">
+          <img class="tech-logo-item" src="logos-stack/logo-analytics.png" alt="Google Analytics">
+          <img class="tech-logo-item" src="logos-stack/logo-claude.png" alt="Claude">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contacto">
+    <div class="cta-inner">
+      <p class="cta-label">Hablemos</p>
+      <h2 class="cta-title">¿Listo para dejar<br>de adivinar?</h2>
+      <p class="cta-sub">Cuéntanos tu desafío. Nosotros traemos la metodología, los datos y la creatividad.</p>
+
+      <div class="cta-grid">
+        <div>
+          <p class="cta-channel-label">Respuesta rápida</p>
+          <a href="https://wa.me/56977924240" class="btn-whatsapp" target="_blank" rel="noopener">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escríbenos por WhatsApp
+          </a>
+          <p class="cta-wa-desc">Respondemos en menos de 2 horas en horario hábil.</p>
+        </div>
+
+        <div>
+          <p class="cta-channel-label">Cuéntanos tu desafío</p>
+          <form action="https://formspree.io/f/xvzjwjvw" method="POST" class="contact-form">
+            <div class="form-row">
+              <input type="text" name="nombre" placeholder="Tu nombre" required>
+              <input type="email" name="email" placeholder="Tu email" required>
+            </div>
+            <input type="text" name="empresa" placeholder="Tu empresa">
+            <textarea name="mensaje" placeholder="¿Cuál es tu desafío de marketing?" required></textarea>
+            <button type="submit" class="btn-submit">Enviar mensaje →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="lgo_fenomena.png" alt="f3nômen4">
+    </div>
+    <div class="footer-text">
+      © 2026 Fenómena. Marketing Science.<br>
+      Chile · Colombia · Uruguay · Argentina · Ecuador
+    </div>
+    <div class="footer-partners">
+      <span class="partner-badge">Google Partner</span>
+      <span class="partner-badge">Meta Business Partner</span>
+      <span class="partner-badge">AMDD Cert.</span>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.querySelector('.contact-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.btn-submit');
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          form.innerHTML = '<p style="color:#fff;font-size:1.1rem;font-weight:600;padding:2rem 0;">¡Mensaje enviado! Te contactamos pronto.</p>';
+        } else {
+          btn.textContent = 'Enviar mensaje →';
+          btn.disabled = false;
+          alert('Hubo un error. Intenta nuevamente.');
+        }
+      } catch {
+        btn.textContent = 'Enviar mensaje →';
+        btn.disabled = false;
+        alert('Hubo un error. Intenta nuevamente.');
+      }
+    });
+  </script>
+</body>
+</html>
